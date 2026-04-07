@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "author": "Hushan Ridmika",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -105.6,
+      "left": -254.36,
+      "attrs": {}
+    },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -86.1, "left": -72.6, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -103.2,
+      "left": -372.6,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 185.6,
+      "left": -392.8,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": 133.4,
+      "left": -46.2,
+      "rotate": 270,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:15", "dht1:SDA", "green", [ "v-19.2", "h105.6" ] ],
+    [ "esp:GND.2", "dht1:GND", "black", [ "v-19.2", "h163.2", "v153.6", "h-38.4" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v115.2", "h-230.4", "v-230.4" ] ],
+    [ "bz1:2", "esp:12", "green", [ "v0" ] ],
+    [ "esp:GND.1", "bz1:1", "black", [ "h0" ] ],
+    [ "ldr1:VCC", "esp:3V3", "red", [ "h9.6", "v-57.6", "h-76.8", "v-220.8" ] ],
+    [ "esp:GND.1", "ldr1:GND", "black", [ "h-28.65", "v0", "h0", "v86.4", "h76.8", "v76.8" ] ],
+    [ "esp:34", "ldr1:AO", "green", [ "h-19.05", "v163.2", "h76.8", "v105.6" ] ],
+    [ "servo1:V+", "esp:5V", "red", [ "v38.4", "h-105.6", "v-163.2", "h-182.45" ] ],
+    [ "servo1:GND", "esp:GND.1", "black", [ "v19.2", "h-144", "v-134.4", "h-134.55" ] ],
+    [
+      "servo1:PWM",
+      "esp:26",
+      "green",
+      [ "v28.8", "h-124.8", "v-182.4", "h-124.6", "v-9.6", "h-48.15" ]
+    ]
+  ],
+  "dependencies": {}
+}
