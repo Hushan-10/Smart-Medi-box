@@ -1,0 +1,2 @@
+This folder contains the Wokwi MediBox Project, developed using VS Code. All .cpp files are located in the src folder, while the diagram.json file is included to define the circuit setup. Additionally, a video file is provided to explain the code in detail.
+Thank you sir
